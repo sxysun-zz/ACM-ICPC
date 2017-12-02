@@ -92,3 +92,8 @@ def scalaFiles =
     α-conversion: changing bound variables (alpha);
     β-reduction: applying functions to their arguments (beta);
     η-conversion: which captures a notion of extensionality (eta).
+* 
+> Scala Option(选项)类型用来表示一个值是可选的（有值或无值)。Option[T] 是一个类型为 T 的可选值的容器： 如果值存在， Option[T] 就是一个 Some[T] ，如果不存在， Option[T] 就是对象 None 。
+在Scala里Option[T]实际上是一个容器，就像数组或是List一样，你可以把他看成是一个可能有零到一个元素的List。
+当你的Option里面有东西的时候，这个List的长度是1（也就是 Some），而当你的Option里没有东西的时候，它的长度是0（也就是 None）。
+* `apply` & `unapply`适用于模式匹配 一般返回提取的值
