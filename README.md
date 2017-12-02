@@ -34,4 +34,16 @@ v1 match {
 ```
 * pattern guard 放在模式匹配 => 之前的`if`
 * __Problem 26__ 的操作??
+* 可以在不需要匹配的地方用 _ 代替参数 例如 `case (first, second, _) => {}`
+* Traits and classes can be marked sealed which means all subtypes must be declared in the same file. This assures that all subtypes are known. This is useful for pattern matching because we don’t need a “catch all” case.
+``` scala
+sealed abstract class Furniture
+case class Couch() extends Furniture
+case class Chair() extends Furniture
+
+def findPlaceToSit(piece: Furniture): String = piece match {
+  case a: Couch => "Lie on the couch"
+  case b: Chair => "Sit on the chair"
+}
+```
 * 
