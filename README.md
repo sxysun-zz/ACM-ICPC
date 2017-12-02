@@ -2,6 +2,11 @@
 My codes for [scala99](http://aperiodic.net/phil/scala/s-99/)
 naively written with somewhat functional style
 
+### TODO
+* 26
+* 27
+* 28 
+
 ### Notes for myself
 
 * :\ foldRight
@@ -64,3 +69,26 @@ def sum(args: Int*) = {
      | }
 ```
 * 转换参数序列: `val s = sum(1 to 5: _*)`
+* for yield expression:
+``` scala
+def scalaFiles = 
+  for {
+    file <- filesHere
+    if file.isFile
+    if file.getName.endsWith(".scala")
+  } yield file
+  /*
+  * yield 关键字的简短总结:
+  * 针对每一次 for 循环的迭代, yield 会产生一个值，被循环记录下来 (内部实现上，像是一个缓冲区).
+  * 当循环结束后, 会返回所有 yield 的值组成的集合.
+  * 返回集合的类型与被遍历的集合类型是一致的.
+  */
+  ```
+  * 1 to 10, 两边都是包含的
+  * callback回调就是B和A互操
+  * closure闭包就是调用外部的自由变量的函数 和Currying 相似
+  * Lambda Calculus:
+  > 
+    α-conversion: changing bound variables (alpha);
+    β-reduction: applying functions to their arguments (beta);
+    η-conversion: which captures a notion of extensionality (eta).
