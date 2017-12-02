@@ -34,7 +34,7 @@ v1 match {
 ```
 * pattern guard 放在模式匹配 => 之前的`if`
 * __Problem 26__ 的操作??
-* 可以在不需要匹配的地方用 _ 代替参数 例如 `case (first, second, _) => {}`
+* 可以在不需要匹配的地方用 _ 代替参数 例如 `case (first, second, _) => {}` 但是变长参数需要用 _*
 * Traits and classes can be marked sealed which means all subtypes must be declared in the same file. This assures that all subtypes are known. This is useful for pattern matching because we don’t need a “catch all” case.
 ``` scala
 sealed abstract class Furniture
@@ -46,4 +46,21 @@ def findPlaceToSit(piece: Furniture): String = piece match {
   case b: Chair => "Sit on the chair"
 }
 ```
-* 
+* @ 用于模式匹配大致相当于 : 
+``` scala
+al l = List(1,2,3)
+val s = l match {
+  case list @ List(1, _*) => s"a start value is 1 list :$list"
+  case list : List[_] => s"a start value not 1 list"
+}
+// 看书上说是为了取出模式匹配后对应的原来输入值，例如上面例子中的模式匹配是为了匹配1开始的列表，如果写成case x: List(1, _*)   是无法编译通过的，而写成@则可以编译通过并将值赋予list
+```
+* 变长参数:
+``` scala 
+def sum(args: Int*) = {
+     | var result = 0
+     | for (arg <- args) result += arg
+     | result
+     | }
+```
+* 转换参数序列: `val s = sum(1 to 5: _*)`
