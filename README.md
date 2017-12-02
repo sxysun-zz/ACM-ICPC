@@ -33,4 +33,5 @@ v1 match {
 }  
 ```
 * pattern guard 放在模式匹配 => 之前的`if`
+* __Problem 26__ 的操作??
 * 
