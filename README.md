@@ -1,11 +1,5 @@
-# Scala-99
-My codes for [scala99](http://aperiodic.net/phil/scala/s-99/)
-naively written with somewhat functional style
-
-### TODO
-* 26
-* 27
-* 28 
+# Some Naive codes for ACM
+Implemented in functional style horribly, I mainly write my code in racket/ scheme/ scala
 
 ### Notes for myself
 
