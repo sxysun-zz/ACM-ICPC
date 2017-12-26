@@ -1,17 +1,10 @@
 #lang racket
 
-;;;procedure is data!!!
+;;;procedure is data
+;;;程序是写给人看的，附带能在机器上运行
+;;;                       --- sicp
 
 ;;;abstract data structure
-
-;(define (cons x y)
-;  (define (d m)
-;    (cond ((= m 0) x)
-;          ((= m 1) y)
-;          (else (error "wrong argument"))))
-;    d)
-;(define (car z) (z 0))
-;(define (cdr z) (z 1))
 
 (define (consn x y)
   (lambda (m) (m x y)))
@@ -19,6 +12,15 @@
   (x (lambda (a b) a)))
 (define (cdrn x)
   (x (lambda (a b) b)))
+
+(define (conss x y)
+  (define (d m)
+    (cond ((= m 0) x)
+          ((= m 1) y)
+          (else (error "wrong argument"))))
+    d)
+(define (cars z) (z 0))
+(define (cdrs z) (z 1))
 
 ;;;church numerals
 (define zero (lambda (f) (lambda (x) x)))
@@ -47,6 +49,31 @@
 
 ;;;hierarchical data an closure
 ;list/ sequence
-;(cons 1(cons 2(cons 3(cons 4 nil))))
+
+(define exp (cons 1(cons 2(cons 3(cons 4 5)))))
+;(cdr exp)
 (define str (list 1 2 3 4))
-(cdr str)
+;(car (cdr str))
+;(cons 10 str)
+(define (list-get l n)
+  (cond ((= n 0) (car l))
+        (else (list-get (cdr l) (- n 1)))))
+;(list-get str 2)
+(define (length l)
+  (if (null? l)
+        0
+        (+ 1 (length (cdr l)))))
+;(length str)
+(define (append l1 l2)
+  (cond ((null? l1) l2)
+        (else (append (cdr l1) (cons (car l1) l2)))))
+;(append (list 9 10 `a) str)
+;;;binary trees
+(define bt (cons (list 1 2) (list 3 4)))
+(define (count-leaves l)
+  (cond ((null? l) 0)
+        ((not (pair? l)) 1)
+        (else (+ (count-leaves (car l))
+                 (count-leaves (cdr l))))))
+
+;;;symbolic differentiation
