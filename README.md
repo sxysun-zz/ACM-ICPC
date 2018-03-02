@@ -1,8 +1,9 @@
-# Some Naive codes for ACM
+# Some Naive codes for ACM and SICP and LISP
 Implemented in functional style horribly, I mainly write my code in racket/ scheme/ scala
 
-### Notes for myself
+### Notes for myself: Racket/Common Lisp
 
+### Notes for myself: Scala
 * :\ foldRight
 * /: foldLeft
 * ++ concat anything
