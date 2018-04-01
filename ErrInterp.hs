@@ -50,7 +50,7 @@ test t = showE (interp t [])
 term0 = (App (Lam "x" (Add (Var "x") (Var "x"))) (Add (Con 10) (Con 11)))
 term1 = (App (Con 1) (Con 2))
 
--- Eonad Definition
+-- Monad Definition
 data E a = Suc a | Err String
 
 unitE :: a -> E a
